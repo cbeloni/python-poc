@@ -1,0 +1,2 @@
+class ValorInvalidoServico(Exception):
+    pass
