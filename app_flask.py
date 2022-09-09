@@ -2,14 +2,14 @@ from flask import Flask, render_template
 from flasgger import Swagger
 import logging
 from werkzeug.exceptions import HTTPException, BadRequest
+from app_flask_document import document_app
 
 app = Flask(__name__)
-
+app.register_blueprint(document_app)
 swagger = Swagger(app)
 
 def get_flashed_messages():    
     return ["oi","segunda mensagem", "teste"]
-
 
 @app.route('/')
 def index():

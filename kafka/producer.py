@@ -18,7 +18,7 @@ if __name__ == '__main__':
         dummy_message = generate_message()
         print(f'producing message @{datetime.now} | message = {serializer(dummy_message)}')
         
-        producer.send('msg', dummy_message, partition=0)
+        producer.send('msg10', dummy_message, partition=0)
         
         time_to_sleep = random.randint(1,3)
         time.sleep(time_to_sleep)

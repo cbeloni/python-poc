@@ -16,6 +16,7 @@ async def coroutine_task_01():
     # chamado a funcao coroutine_task, que eh uma corrotina.
     tasks = []
     for iteraction in range(10):
+        print(f"iniciado thread {iteraction}")
         tasks.append(asyncio.create_task(
               coroutine_task(iteraction)))
     # As Task sao agrupadas em uma lista e passadas para o metodo 
@@ -27,7 +28,9 @@ async def coroutine_task_01():
     # ser substituido tranquilamente pela funcao 
     # asyncio.ensure_future. O exemplo com asyncio.ensure_future 
     # eh demonstrado na couroutine coroutine_task_02
+    print('aguardando terminar as threads')
     await asyncio.gather(*tasks)
+    print('finalizado as threads')
 
 async def coroutine_task_02():
     # A coroutine_task_02 faz exetamente a mesma coisa que a

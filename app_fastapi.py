@@ -2,11 +2,13 @@ from typing import Optional
 from fastapi import FastAPI
 from fastapi.exceptions import HTTPException, RequestValidationError
 from uvicorn import run
+import time
 
 app = FastAPI()
 
 @app.get("/")
 def read_root():
+    time.sleep(1)
     return {"Hello": "World"}
 
 @app.get("/item/{item}")
@@ -22,5 +24,5 @@ def read_item(item: int, q: Optional[str] = None):
     return {"item": item, "q": q}
 
 if __name__ == '__main__':
-    run("app_fastapi:app", port=8000, reload=True, access_log=False)
+    run("app_fastapi:app", port=8001, reload=True, access_log=False)
     
